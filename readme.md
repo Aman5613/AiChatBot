@@ -4,3 +4,4 @@ feat: initialize project with Express and Socket.io setup
 - Created server.js to set up an HTTP server and handle WebSocket connections.
 - Implemented ai.service.js to generate responses using Google GenAI.
 - Set up basic Express app in app.js.
+- Refactor socket.io server to improve chat history management and response generation
