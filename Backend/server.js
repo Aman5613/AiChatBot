@@ -5,7 +5,11 @@ const { Server } = require("socket.io");
 const generateResponse = require("./src/Services/ai.service");
 
 const httpServer = createServer(app);
-const io = new Server(httpServer, {});
+const io = new Server(httpServer, {
+  cors:{
+    origin: "http://localhost:5173"
+  }
+});
 
 // chat history save karna ke -> it will give short term memory to Model
 const chatHistory = [];
@@ -36,7 +40,10 @@ io.on("connection", (socket) => {
     });
 
     // send response back to client
-    socket.emit("response", { resp });
+    socket.emit("response", { 
+      role : "model",
+      response : resp
+     });
   });
 });
 
